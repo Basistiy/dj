@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactController from '../controllers/ContactController';
+import axios from "axios";
 
 /** 
  * This renders the form for adding/editing a contact.
@@ -81,6 +82,14 @@ class ContactForm extends React.Component {
   };
 
   hideModal(){
+    axios({
+      method: "POST",
+      url:"/notes/",
+      data:{
+        title: "",
+        content: ""
+       }
+    })
     this.setState({
       show: false
     });
